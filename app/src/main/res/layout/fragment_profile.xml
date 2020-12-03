@@ -7,7 +7,7 @@
     tools:context=".fragments.ProfileFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout2"
+       android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
@@ -41,10 +41,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <TextView
-        android:id="@+id/profile_username"
+        android:id="@+id/text_profile_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -53,7 +53,6 @@
         android:textSize="18sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/circleImageView_profile"
-        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="@+id/circleImageView_profile"
         app:layout_constraintTop_toBottomOf="@+id/circleImageView_profile" />
 
@@ -66,9 +65,9 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/profile_username"
-        app:layout_constraintStart_toStartOf="@+id/profile_username"
-        app:layout_constraintTop_toBottomOf="@+id/profile_username" />
+        app:layout_constraintEnd_toEndOf="@+id/text_profile_username"
+        app:layout_constraintStart_toStartOf="@+id/text_profile_username"
+        app:layout_constraintTop_toBottomOf="@+id/text_profile_username" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -110,9 +109,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:paddingStart="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,6 +120,8 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="40dp"
         android:text="Update"
+        android:textAllCaps="false"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
