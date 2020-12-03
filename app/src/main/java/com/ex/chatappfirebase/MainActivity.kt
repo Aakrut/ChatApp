@@ -24,12 +24,28 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //BottomNavigationView
     private fun bottomNav() {
-     
+     mainBinding.bottomNavigationBar.setOnNavigationItemSelectedListener {
+         when(it.itemId){
+             R.id.home_frag -> {
+                 loadFragment(HomeFragment())
+                 return@setOnNavigationItemSelectedListener true
+             }
+             R.id.search_frag -> {
+                 loadFragment(SearchFragment())
+                 return@setOnNavigationItemSelectedListener true
+             }
+             R.id.profile_frag -> {
+                 loadFragment(ProfileFragment())
+                 return@setOnNavigationItemSelectedListener true
+             }
+             else -> return@setOnNavigationItemSelectedListener false
+         }
+     }
     }
 
     private fun loadFragment(fragment: Fragment) {
-
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
         transaction.addToBackStack(null)
