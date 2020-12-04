@@ -6,17 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ex.chatappfirebase.R
+import com.ex.chatappfirebase.databinding.FragmentProfileBinding
 
 
 class ProfileFragment : Fragment() {
 
-
+    private lateinit var profileBinding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        profileBinding = FragmentProfileBinding.inflate(inflater,container,false)
+        val view = profileBinding.root
+        return view
     }
 
 
