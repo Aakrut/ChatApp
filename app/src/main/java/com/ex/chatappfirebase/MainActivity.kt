@@ -1,5 +1,6 @@
 package com.ex.chatappfirebase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +8,13 @@ import com.ex.chatappfirebase.databinding.ActivityMainBinding
 import com.ex.chatappfirebase.fragments.HomeFragment
 import com.ex.chatappfirebase.fragments.ProfileFragment
 import com.ex.chatappfirebase.fragments.SearchFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     private lateinit var mainBinding: ActivityMainBinding
 
@@ -18,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val view = mainBinding.root
         setContentView(view)
 
+        firebaseAuth = Firebase.auth
         loadFragment(HomeFragment())
 
         bottomNav()
@@ -50,5 +57,15 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(firebaseAuth.currentUser?.uid == null){
+            val intent = Intent()
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(Intent(this,LogInActivity::class.java))
+            finish()
+        }
     }
 }
