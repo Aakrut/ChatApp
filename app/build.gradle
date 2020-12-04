@@ -52,6 +52,9 @@ dependencies {
     //CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:26.1.1')
     //FirebaseAuth
