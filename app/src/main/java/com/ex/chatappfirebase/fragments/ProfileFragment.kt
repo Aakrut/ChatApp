@@ -47,8 +47,8 @@ class ProfileFragment : Fragment() {
                 Log.d(TAG, "Current data: ${snapshot.data}")
                 val user : User? = snapshot.toObject(User::class.java)
 
-                profileBinding.usernameProfileEditText.setText(user!!.username)
-                profileBinding.fullnameProfileEditText.setText(user.fullname)
+                profileBinding.textProfileUsername.text = user!!.username
+                profileBinding.profileFullname.text = user.fullname
                 Picasso.get().load(user.photo_profile).into(profileBinding.circleImageViewProfile)
 
             } else {
