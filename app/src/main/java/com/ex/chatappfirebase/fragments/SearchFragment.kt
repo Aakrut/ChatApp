@@ -56,6 +56,8 @@ class SearchFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if(searchBinding.searchUserEditText.text.toString() != ""){
                     searchUser(s.toString().toLowerCase())
+                }else{
+                    mUserList!!.clear()
                 }
             }
 
@@ -70,6 +72,7 @@ class SearchFragment : Fragment() {
         val firestore = Firebase.firestore
         firestore.collection("Users").orderBy("search").startAt(input).endAt("$input\uf8ff")
             .addSnapshotListener { snapshot, error ->
+                mUserList?.clear()
                 if(error != null){
                     Log.d(TAG, "searchUser: Error")
                 }
