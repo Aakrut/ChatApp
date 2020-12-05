@@ -55,6 +55,9 @@ dependencies {
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    //CropImageView
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:26.1.1')
     //FirebaseAuth
