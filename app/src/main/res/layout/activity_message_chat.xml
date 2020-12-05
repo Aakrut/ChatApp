@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessageChatActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circle_image_chat_appbar"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/black"
+                    android:src="@mipmap/ic_launcher"
+                    />
+
+                <TextView
+                    android:id="@+id/text_username_message_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="username"
+                    android:layout_toEndOf="@id/circle_image_chat_appbar"
+                    android:layout_marginTop="6dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"/>
+
+                <TextView
+                    android:id="@+id/text_fullname_message_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="fullname"
+                    android:layout_toEndOf="@id/circle_image_chat_appbar"
+                    android:layout_below="@id/text_username_message_chat"
+                    android:layout_marginTop="3dp"
+                    android:textSize="16sp"
+                    android:layout_marginStart="10dp"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_chat_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appbar_layout"
+            android:layout_above="@id/rel2"/>
+
+        <RelativeLayout
+            android:id="@+id/rel2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/attach_image"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/ic_baseline_attach_file_24"
+                android:layout_centerVertical="true"/>
+
+            <EditText
+                android:id="@+id/edit_text_message"
+                android:layout_width="280dp"
+                android:layout_height="60dp"
+                android:hint="message"
+                android:paddingStart="10dp"
+
+                android:layout_toEndOf="@id/attach_image"
+                android:layout_marginStart="5dp"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/micorsend_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_mic_24"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

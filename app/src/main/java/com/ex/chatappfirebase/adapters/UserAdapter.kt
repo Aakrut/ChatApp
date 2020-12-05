@@ -1,11 +1,13 @@
 package com.ex.chatappfirebase.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ex.chatappfirebase.MessageChatActivity
 import com.ex.chatappfirebase.R
 import com.ex.chatappfirebase.data.User
 import com.squareup.picasso.Picasso
@@ -35,6 +37,12 @@ class UserAdapter(val context: Context,val mUserList : List<User>) : RecyclerVie
             holder.fullname_text.text = user.fullname
 
         Picasso.get().load(user.photo_profile).into(holder.circle_image)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context,MessageChatActivity::class.java)
+            intent.putExtra("profile_Id",user.uid)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
