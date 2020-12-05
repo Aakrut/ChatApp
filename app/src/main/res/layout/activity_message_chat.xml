@@ -91,7 +91,7 @@
                 android:id="@+id/micorsend_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_mic_24"
+                android:src="@drawable/ic_baseline_send_24"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="5dp"/>
 
