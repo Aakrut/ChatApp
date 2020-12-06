@@ -19,16 +19,15 @@ class MessageAdapter(val context: Context, val messageList : List<Message>,val i
     class MessageViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         var circleImageView_chat : CircleImageView
         var message_left : TextView
-        var time_left : TextView
+
         var message_right : TextView
-        var time_right : TextView
+
 
         init {
             circleImageView_chat = itemView.findViewById(R.id.receiver_image_left)
             message_left = itemView.findViewById(R.id.text_message_chat_left)
             message_right = itemView.findViewById(R.id.text_message_chat_right)
-            time_left = itemView.findViewById(R.id.time_text_chat_left)
-            time_right = itemView.findViewById(R.id.time_text_chat_right)
+
         }
     }
 
@@ -46,8 +45,6 @@ class MessageAdapter(val context: Context, val messageList : List<Message>,val i
 
         holder.message_left.text = message.message
         holder.message_right.text = message.message
-        holder.time_left.text = message.time.toInt().toString()
-        holder.time_right.text = message.time.toInt().toString()
 
         Picasso.get().load(image).into(holder.circleImageView_chat)
 
