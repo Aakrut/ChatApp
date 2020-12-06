@@ -14,18 +14,15 @@ import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
-class MessageAdapter(val context: Context, val messageList : List<Message>,val image : String) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
+class MessageAdapter(val context: Context, val messageList : List<Message>) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
     private lateinit var firebaseAuth: FirebaseAuth
     class MessageViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        var circleImageView_chat : CircleImageView ?= null
+
         var message : TextView ?= null
 
-
-
         init {
-            circleImageView_chat = itemView.findViewById(R.id.receiver_image_left)
-            message = itemView.findViewById(R.id.text_message_chat_left)
 
+            message = itemView.findViewById(R.id.text_message_chat)
 
         }
     }
@@ -44,8 +41,6 @@ class MessageAdapter(val context: Context, val messageList : List<Message>,val i
 
         holder.message!!.text = message.message
 
-
-        Picasso.get().load(image).into(holder.circleImageView_chat)
 
     }
 

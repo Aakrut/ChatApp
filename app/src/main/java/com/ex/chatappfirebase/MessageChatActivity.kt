@@ -81,7 +81,7 @@ class MessageChatActivity : AppCompatActivity() {
                 messageChatBinding.textFullnameMessageChat.text = user.fullname
                 Picasso.get().load(user.photo_profile).into(messageChatBinding.circleImageChatAppbar)
 
-                RetrieveMessages(firebaseAuth.currentUser!!.uid,userId,user.photo_profile)
+                RetrieveMessages(firebaseAuth.currentUser!!.uid,userId)
 
             } else {
                 Log.d(TAG, "Current data: null")
@@ -90,9 +90,9 @@ class MessageChatActivity : AppCompatActivity() {
 
     }
 
-    private fun RetrieveMessages(uid: String, userId: String, photoProfile: String) {
+    private fun RetrieveMessages(uid: String, userId: String) {
             val db = Firebase.firestore
-            db.collection("ChatLists").orderBy("time",Query.Direction.DESCENDING).addSnapshotListener{
+            db.collection("ChatLists").orderBy("time",Query.Direction.ASCENDING).addSnapshotListener{
                 value, e ->
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e)
@@ -106,7 +106,7 @@ class MessageChatActivity : AppCompatActivity() {
                         ( message_list as ArrayList<Message>).add(messages)
                         Log.d(TAG, "RetrieveMessages: Retrieving All Messages")
                     }
-                    messageAdapter = MessageAdapter(context = this, message_list as ArrayList<Message>,photoProfile)
+                    messageAdapter = MessageAdapter(context = this, message_list as ArrayList<Message>)
                     messageChatBinding.recyclerViewChatMessage.adapter = messageAdapter
                 }
                
