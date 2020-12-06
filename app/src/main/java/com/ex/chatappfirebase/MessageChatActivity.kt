@@ -137,7 +137,7 @@ class MessageChatActivity : AppCompatActivity() {
                             "message_id" to message_id,
                             "sender" to sender,
                             "receiver" to receiver,
-                            "time" to Date.from(Instant.now())
+                            "time" to Timestamp.now()
                     )
 
                     ref2.document(message_id).set(hasMapChatLists).addOnSuccessListener {
