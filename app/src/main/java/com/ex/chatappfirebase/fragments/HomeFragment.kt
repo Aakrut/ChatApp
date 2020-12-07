@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
 
         homeBinding.recyclerViewHome.setHasFixedSize(true)
         homeBinding.recyclerViewHome.layoutManager = LinearLayoutManager(context)
-        userAdapter = context?.let { UserAdapter(it,userList!!) }
+
 
         messageList = ArrayList()
         val db = Firebase.firestore
@@ -61,7 +61,7 @@ class HomeFragment : Fragment() {
                     (messageList as ArrayList<Message>).add(message)
                     Log.d(TAG, "onCreateView: Retrieving 1")
                 }
-                retreiveChatLists()
+                //retreiveChatLists()
             } else {
                 Log.d(TAG, "Current data: null")
             }
@@ -71,33 +71,34 @@ class HomeFragment : Fragment() {
         return view
     }
 
-    private fun retreiveChatLists() {
-        userList = ArrayList()
-        messageList = ArrayList()
-
-        val db = Firebase.firestore
-        val ref = db.collection("Users").addSnapshotListener { value, e ->
-            if (e != null) {
-                Log.w(TAG, "Listen failed.", e)
-                return@addSnapshotListener
-            }
-
-            (userList as ArrayList<User>).clear()
-
-            for (doc in value!!) {
-                val user: User = doc.toObject(User::class.java)
-                for(alllist in messageList!!){
-                    if(user.uid.equals(alllist.sender)){
-                        (userList as ArrayList<User>).add(user)
-                        Log.d(TAG, "retreiveChatLists: Retrieving All Messages")
-                    }
-                }
-            }
-            homeBinding.recyclerViewHome.adapter = userAdapter
-            Log.d(TAG, "Current ")
-        }
-
-    }
+//    private fun retreiveChatLists() {
+//        userList = ArrayList()
+//        messageList = ArrayList()
+//
+//        val db = Firebase.firestore
+//        val ref = db.collection("Users").addSnapshotListener { value, e ->
+//            if (e != null) {
+//                Log.w(TAG, "Listen failed.", e)
+//                return@addSnapshotListener
+//            }
+//
+//            (userList as ArrayList<User>).clear()
+//
+//            for (doc in value!!) {
+//                val user: User = doc.toObject(User::class.java)
+//                for(alllist in messageList!!){
+//                    if(user.uid.equals(alllist.sender)){
+//                        (userList as ArrayList<User>).add(user)
+//                        Log.d(TAG, "retreiveChatLists: Retrieving All Messages")
+//                    }
+//                }
+//            }
+//            userAdapter = context?.let { UserAdapter(it,userList!!) }
+//            homeBinding.recyclerViewHome.adapter = userAdapter
+//            Log.d(TAG, "Current ")
+//        }
+//
+//    }
 
 
 }
