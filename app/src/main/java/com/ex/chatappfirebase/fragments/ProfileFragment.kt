@@ -64,6 +64,12 @@ class ProfileFragment : Fragment() {
                 Log.d(TAG, "Current data: null")
             }
         }
+
+        profileBinding.removePhotoTextProfile.setOnClickListener {
+            val db = Firebase.firestore
+            db.collection("Users").document(firebaseAuth.currentUser!!.uid).update("photo_profile",
+                    "https://firebasestorage.googleapis.com/v0/b/messenger-clone-7c509.appspot.com/o/image.png?alt=media&token=63347c50-40e2-4049-ae3c-7e61d43ca6d8")
+        }
         
         profileBinding.buttonUpdate.setOnClickListener { 
             updateProfile()
