@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image_home_item_list"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="2dp"/>
+
+        <TextView
+            android:id="@+id/username_home_item_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/circle_image_home_item_list"
+            android:text="username"
+            android:layout_marginTop="21dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:id="@+id/new_message_text_home_item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="new message"
+            android:layout_below="@id/username_home_item_list"
+            android:layout_toEndOf="@id/circle_image_home_item_list"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@
     tools:context=".fragments.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
@@ -29,5 +30,13 @@
                 android:textStyle="bold" />
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
