@@ -108,6 +108,7 @@ class MessageChatActivity : AppCompatActivity() {
                     }
                     messageAdapter = MessageAdapter(context = this, message_list as ArrayList<Message>)
                     messageChatBinding.recyclerViewChatMessage.adapter = messageAdapter
+                    messageChatBinding.recyclerViewChatMessage.scrollToPosition(messageAdapter!!.itemCount -1)
                 }
                
                 Log.d(TAG, "Current ")

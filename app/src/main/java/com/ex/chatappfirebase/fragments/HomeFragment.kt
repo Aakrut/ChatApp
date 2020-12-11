@@ -26,9 +26,9 @@ class HomeFragment : Fragment() {
 
     private lateinit var firebase_auth : FirebaseAuth
 
-    private var userList : List<User> ?= null
+    //private var userList : List<User> ?= null
     private var messageList : List<Message> ?= null
-    private var userAdapter : UserAdapter ?= null
+    //private var userAdapter : UserAdapter ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
